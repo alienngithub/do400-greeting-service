@@ -21,6 +21,13 @@ pipeline{
             }
         }
 
-        // Add the "Deploy" stage here
+        stage('Deploy') {
+            steps {
+                '''
+                oc project xudlbs-greetings
+                oc start-build greeting-service --follow --wait
+                '''
+            }
+        }
     }
 }
