@@ -27,7 +27,7 @@ pipeline{
 
                sh '''
                 oc whoami
-                oc project xudlbs-greetings
+                oc project xudlbs-deploy-strategies
                 oc start-build greeting-service --follow --wait
                 '''
             }
