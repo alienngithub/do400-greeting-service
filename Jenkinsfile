@@ -1,31 +1,32 @@
 pipeline{
     agent{
-        label "nodejs"
+        label 'nodejs'
             }
           
         stages{
                   
-        stage("Install dependencies"){
+        stage('Install dependencies'){
             steps{
-                sh "npm ci"
+                sh 'npm ci'
             }
         }
 
-        stage("Check Style"){
+        stage('Check Style'){
             steps{
-                sh "npm run lint"
+                sh 'npm run lint'
             }
         }
 
-        stage("Test"){
+        stage('Test'){
             steps{
-                sh "npm test"
+                sh 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
-                '''
+
+               sh '''
                 oc whoami
                 oc project xudlbs-greetings
                 oc start-build greeting-service --follow --wait
