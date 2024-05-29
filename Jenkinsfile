@@ -1,8 +1,7 @@
 pipeline{
     agent{
         label "nodejs"
-        credentialsId: 'GITHUB_TOKEN'
-    }
+            }
     stages{
         stage("Install dependencies"){
             steps{
