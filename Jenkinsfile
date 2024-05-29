@@ -2,7 +2,11 @@ pipeline{
     agent{
         label "nodejs"
             }
-    stages{
+          
+        stages{
+        stage('Checkout') {
+            git credentialsId: GITHUB_TOKEN
+        }
         stage("Install dependencies"){
             steps{
                 sh "npm ci"
