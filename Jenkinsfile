@@ -1,7 +1,6 @@
 pipeline{
-    agent{
-        label 'nodejs'
-            }
+    agent any
+    tools{ nodejs "nodejs" }
           
         stages{
                   
