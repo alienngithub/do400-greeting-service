@@ -1,6 +1,9 @@
 pipeline{
     agent any
     tools{ nodejs "nodejs" }
+    parameters {
+        booleanParam(name: "Run_Tests", defaultValue: true)
+    }
           
         stages{
                   
@@ -17,6 +20,7 @@ pipeline{
         }
 
         stage('Test'){
+            when { expression { params.Run_Tests}}
             steps{
                 sh 'npm test'
             }
