@@ -4,12 +4,8 @@ pipeline{
             }
           
         stages{
-        stage('Checkout') {
-            steps{
-            git credentialsId: GITHUB_TOKEN 
-            }
-   
-        }
+           
+        
         stage("Install dependencies"){
             steps{
                 sh "npm ci"
