@@ -5,7 +5,10 @@ pipeline{
           
         stages{
         stage('Checkout') {
-            git credentialsId: GITHUB_TOKEN
+            steps{
+            git credentialsId: GITHUB_TOKEN 
+            }
+   
         }
         stage("Install dependencies"){
             steps{
