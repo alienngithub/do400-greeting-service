@@ -4,8 +4,7 @@ pipeline{
             }
           
         stages{
-           
-        
+                  
         stage("Install dependencies"){
             steps{
                 sh "npm ci"
@@ -27,6 +26,7 @@ pipeline{
         stage('Deploy') {
             steps {
                 '''
+                oc whoami
                 oc project xudlbs-greetings
                 oc start-build greeting-service --follow --wait
                 '''
